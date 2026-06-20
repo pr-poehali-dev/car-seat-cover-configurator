@@ -28,7 +28,7 @@ const MATERIALS = [
 ];
 
 const GALLERY = [
-  { title: 'Camry 70 — Чёрный ромб', tag: 'Экокожа' },
+  { title: 'Mazda CX-5 — Дизайн "Под перетяжку"', tag: 'Экокожа' },
   { title: 'Creta — Беж/Графит', tag: 'Алькантара' },
   { title: 'Vesta SW — Оранж', tag: 'Перфорация' },
   { title: 'RAV4 — Индиго', tag: 'Ромб' },
