@@ -146,7 +146,7 @@ const Index = () => {
             <div className="absolute inset-0 bg-primary/30 blur-3xl rounded-full scale-90" />
             <img src={HERO_IMG} alt="Чехлы для сидений" className="relative rounded-3xl border border-border shadow-2xl w-full object-cover aspect-square" />
             <div className="absolute -bottom-5 -left-5 bg-card border border-border rounded-2xl px-5 py-3 backdrop-blur-xl">
-              <div className="flex items-center gap-2 text-accent font-600"><Icon name="ShieldCheck" size={18} /> Гарантия 2 года</div>
+              <div className="flex items-center gap-2 text-accent font-600"><Icon name="ShieldCheck" size={18} /> Гарантия 1 год</div>
             </div>
           </div>
         </div>
@@ -305,7 +305,7 @@ const Index = () => {
                 ['Ruler', 'Точные лекала', 'База на 500+ моделей и комплектаций'],
                 ['Scissors', 'Свой цех', 'Контроль качества на каждом этапе'],
                 ['Truck', 'Доставка по РФ', 'Отправка в любой город'],
-                ['ShieldCheck', 'Гарантия 2 года', 'Уверены в каждом шве'],
+                ['ShieldCheck', 'Гарантия 1 год', 'Уверены в каждом шве'],
               ].map(([icon, t, d]) => (
                 <div key={t} className="p-5 rounded-2xl border border-border bg-card">
                   <Icon name={icon} size={26} className="text-primary mb-3" />
