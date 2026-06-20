@@ -5,31 +5,186 @@ import { Button } from '@/components/ui/button';
 const HERO_IMG = 'https://cdn.poehali.dev/projects/178c948b-040e-4cc7-ad35-99592fb0b625/bucket/bf6a5253-33aa-40a8-9c4a-547bd6fafeb2.jpg';
 const MAT_IMG = 'https://cdn.poehali.dev/projects/178c948b-040e-4cc7-ad35-99592fb0b625/files/2ed7ac17-b7ef-4950-8fb3-e06b349e17f5.jpg';
 
-const CARS = [
-  { brand: 'AUDI', models: ['A3', 'A4', 'A6', 'Q3', 'Q5', 'Q7'] },
-  { brand: 'BMW', models: ['3 Series', '5 Series', '7 Series', 'X3', 'X5', 'X6'] },
-  { brand: 'Changan', models: ['CS35 Plus', 'CS55 Plus', 'CS75 Plus', 'Alsvin', 'UNI-T'] },
-  { brand: 'Chery', models: ['Tiggo 4 Pro', 'Tiggo 7 Pro', 'Tiggo 8 Pro', 'Arrizo 8'] },
-  { brand: 'Chevrolet', models: ['Cruze', 'Captiva', 'Aveo', 'Spark', 'Equinox'] },
-  { brand: 'Daewoo', models: ['Nexia', 'Matiz', 'Lanos', 'Gentra'] },
-  { brand: 'Daihatsu', models: ['Terios', 'Rocky', 'Sirion', 'Cuore'] },
-  { brand: 'Ford', models: ['Focus', 'Mondeo', 'Explorer', 'Kuga', 'EcoSport'] },
-  { brand: 'Honda', models: ['Civic', 'Accord', 'CR-V', 'HR-V', 'Pilot'] },
-  { brand: 'Hyundai', models: ['Solaris', 'Creta', 'Tucson', 'Santa Fe', 'Elantra', 'ix35'] },
-  { brand: 'Kia', models: ['Rio', 'Sportage', 'Sorento', 'Optima', 'K5', 'Cerato'] },
-  { brand: 'Lada', models: ['Vesta', 'Granta', 'Largus', 'Niva Travel', 'XRAY'] },
-  { brand: 'Lexus', models: ['RX', 'NX', 'ES', 'GX', 'LX', 'IS'] },
-  { brand: 'Mazda', models: ['Mazda 3', 'Mazda 6', 'CX-5', 'CX-9', 'CX-30'] },
-  { brand: 'Mercedes-Benz', models: ['C-Class', 'E-Class', 'S-Class', 'GLC', 'GLE', 'GLS'] },
-  { brand: 'Mitsubishi', models: ['Outlander', 'Pajero Sport', 'ASX', 'Eclipse Cross', 'L200'] },
-  { brand: 'Nissan', models: ['Qashqai', 'X-Trail', 'Murano', 'Patrol', 'Almera', 'Teana'] },
-  { brand: 'Opel', models: ['Astra', 'Insignia', 'Mokka', 'Zafira', 'Corsa'] },
-  { brand: 'Renault', models: ['Logan', 'Sandero', 'Duster', 'Kaptur', 'Arkana'] },
-  { brand: 'Subaru', models: ['Outback', 'Forester', 'XV', 'Impreza', 'Legacy'] },
-  { brand: 'Suzuki', models: ['Vitara', 'Grand Vitara', 'Swift', 'Jimny', 'SX4'] },
-  { brand: 'Toyota', models: ['Camry', 'Corolla', 'RAV4', 'Land Cruiser', 'Fortuner', 'Hilux'] },
-  { brand: 'Volkswagen', models: ['Polo', 'Jetta', 'Passat', 'Tiguan', 'Touareg', 'Golf'] },
-  { brand: 'Volvo', models: ['XC60', 'XC90', 'S60', 'S90', 'V60'] },
+type CarModel = { name: string; trims: string[] };
+type CarBrand = { brand: string; models: CarModel[] };
+
+const CARS: CarBrand[] = [
+  { brand: 'AUDI', models: [
+    { name: 'A1, 1 пок. 3-дв. хэтчбэк, 2010-2014, левый руль', trims: ['1+1, 2-й ряд 40/60 без подлокотника, диван цельный'] },
+    { name: 'A3', trims: ['Стандарт'] },
+    { name: 'A4', trims: ['Стандарт'] },
+    { name: 'A6', trims: ['Стандарт'] },
+    { name: 'Q3', trims: ['Стандарт'] },
+    { name: 'Q5', trims: ['Стандарт'] },
+    { name: 'Q7', trims: ['Стандарт'] },
+  ]},
+  { brand: 'BMW', models: [
+    { name: 'X1, 2 пок. 2015-2022, левый руль', trims: ['Стандарт'] },
+    { name: '3 Series', trims: ['Стандарт'] },
+    { name: '5 Series', trims: ['Стандарт'] },
+    { name: '7 Series', trims: ['Стандарт'] },
+    { name: 'X3', trims: ['Стандарт'] },
+    { name: 'X5', trims: ['Стандарт'] },
+    { name: 'X6', trims: ['Стандарт'] },
+  ]},
+  { brand: 'Changan', models: [
+    { name: 'CS35 Plus', trims: ['Стандарт'] },
+    { name: 'CS55 Plus', trims: ['Стандарт'] },
+    { name: 'CS75 Plus', trims: ['Стандарт'] },
+    { name: 'Alsvin', trims: ['Стандарт'] },
+    { name: 'UNI-T', trims: ['Стандарт'] },
+  ]},
+  { brand: 'Chery', models: [
+    { name: 'Tiggo 4 Pro', trims: ['Стандарт'] },
+    { name: 'Tiggo 7 Pro', trims: ['Стандарт'] },
+    { name: 'Tiggo 8 Pro', trims: ['Стандарт'] },
+    { name: 'Arrizo 8', trims: ['Стандарт'] },
+  ]},
+  { brand: 'Chevrolet', models: [
+    { name: 'Cruze', trims: ['Стандарт'] },
+    { name: 'Captiva', trims: ['Стандарт'] },
+    { name: 'Aveo', trims: ['Стандарт'] },
+    { name: 'Spark', trims: ['Стандарт'] },
+    { name: 'Equinox', trims: ['Стандарт'] },
+  ]},
+  { brand: 'Daewoo', models: [
+    { name: 'Nexia', trims: ['Стандарт'] },
+    { name: 'Matiz', trims: ['Стандарт'] },
+    { name: 'Lanos', trims: ['Стандарт'] },
+    { name: 'Gentra', trims: ['Стандарт'] },
+  ]},
+  { brand: 'Daihatsu', models: [
+    { name: 'Terios', trims: ['Стандарт'] },
+    { name: 'Rocky', trims: ['Стандарт'] },
+    { name: 'Sirion', trims: ['Стандарт'] },
+    { name: 'Cuore', trims: ['Стандарт'] },
+  ]},
+  { brand: 'Ford', models: [
+    { name: 'Focus', trims: ['Стандарт'] },
+    { name: 'Mondeo', trims: ['Стандарт'] },
+    { name: 'Explorer', trims: ['Стандарт'] },
+    { name: 'Kuga', trims: ['Стандарт'] },
+    { name: 'EcoSport', trims: ['Стандарт'] },
+  ]},
+  { brand: 'Honda', models: [
+    { name: 'Civic', trims: ['Стандарт'] },
+    { name: 'Accord', trims: ['Стандарт'] },
+    { name: 'CR-V', trims: ['Стандарт'] },
+    { name: 'HR-V', trims: ['Стандарт'] },
+    { name: 'Pilot', trims: ['Стандарт'] },
+  ]},
+  { brand: 'Hyundai', models: [
+    { name: 'Solaris', trims: ['Стандарт'] },
+    { name: 'Creta', trims: ['Стандарт'] },
+    { name: 'Tucson', trims: ['Стандарт'] },
+    { name: 'Santa Fe', trims: ['Стандарт'] },
+    { name: 'Elantra', trims: ['Стандарт'] },
+    { name: 'ix35', trims: ['Стандарт'] },
+  ]},
+  { brand: 'Kia', models: [
+    { name: 'Rio', trims: ['Стандарт'] },
+    { name: 'Sportage', trims: ['Стандарт'] },
+    { name: 'Sorento', trims: ['Стандарт'] },
+    { name: 'Optima', trims: ['Стандарт'] },
+    { name: 'K5', trims: ['Стандарт'] },
+    { name: 'Cerato', trims: ['Стандарт'] },
+  ]},
+  { brand: 'Lada', models: [
+    { name: 'Vesta', trims: ['Стандарт'] },
+    { name: 'Granta', trims: ['Стандарт'] },
+    { name: 'Largus', trims: ['Стандарт'] },
+    { name: 'Niva Travel', trims: ['Стандарт'] },
+    { name: 'XRAY', trims: ['Стандарт'] },
+  ]},
+  { brand: 'Lexus', models: [
+    { name: 'RX', trims: ['Стандарт'] },
+    { name: 'NX', trims: ['Стандарт'] },
+    { name: 'ES', trims: ['Стандарт'] },
+    { name: 'GX', trims: ['Стандарт'] },
+    { name: 'LX', trims: ['Стандарт'] },
+    { name: 'IS', trims: ['Стандарт'] },
+  ]},
+  { brand: 'Mazda', models: [
+    { name: 'Mazda 3', trims: ['Стандарт'] },
+    { name: 'Mazda 6', trims: ['Стандарт'] },
+    { name: 'CX-5', trims: ['Стандарт'] },
+    { name: 'CX-9', trims: ['Стандарт'] },
+    { name: 'CX-30', trims: ['Стандарт'] },
+  ]},
+  { brand: 'Mercedes-Benz', models: [
+    { name: 'C-Class', trims: ['Стандарт'] },
+    { name: 'E-Class', trims: ['Стандарт'] },
+    { name: 'S-Class', trims: ['Стандарт'] },
+    { name: 'GLC', trims: ['Стандарт'] },
+    { name: 'GLE', trims: ['Стандарт'] },
+    { name: 'GLS', trims: ['Стандарт'] },
+  ]},
+  { brand: 'Mitsubishi', models: [
+    { name: 'Outlander', trims: ['Стандарт'] },
+    { name: 'Pajero Sport', trims: ['Стандарт'] },
+    { name: 'ASX', trims: ['Стандарт'] },
+    { name: 'Eclipse Cross', trims: ['Стандарт'] },
+    { name: 'L200', trims: ['Стандарт'] },
+  ]},
+  { brand: 'Nissan', models: [
+    { name: 'Qashqai', trims: ['Стандарт'] },
+    { name: 'X-Trail', trims: ['Стандарт'] },
+    { name: 'Murano', trims: ['Стандарт'] },
+    { name: 'Patrol', trims: ['Стандарт'] },
+    { name: 'Almera', trims: ['Стандарт'] },
+    { name: 'Teana', trims: ['Стандарт'] },
+  ]},
+  { brand: 'Opel', models: [
+    { name: 'Astra', trims: ['Стандарт'] },
+    { name: 'Insignia', trims: ['Стандарт'] },
+    { name: 'Mokka', trims: ['Стандарт'] },
+    { name: 'Zafira', trims: ['Стандарт'] },
+    { name: 'Corsa', trims: ['Стандарт'] },
+  ]},
+  { brand: 'Renault', models: [
+    { name: 'Logan', trims: ['Стандарт'] },
+    { name: 'Sandero', trims: ['Стандарт'] },
+    { name: 'Duster', trims: ['Стандарт'] },
+    { name: 'Kaptur', trims: ['Стандарт'] },
+    { name: 'Arkana', trims: ['Стандарт'] },
+  ]},
+  { brand: 'Subaru', models: [
+    { name: 'Outback', trims: ['Стандарт'] },
+    { name: 'Forester', trims: ['Стандарт'] },
+    { name: 'XV', trims: ['Стандарт'] },
+    { name: 'Impreza', trims: ['Стандарт'] },
+    { name: 'Legacy', trims: ['Стандарт'] },
+  ]},
+  { brand: 'Suzuki', models: [
+    { name: 'Vitara', trims: ['Стандарт'] },
+    { name: 'Grand Vitara', trims: ['Стандарт'] },
+    { name: 'Swift', trims: ['Стандарт'] },
+    { name: 'Jimny', trims: ['Стандарт'] },
+    { name: 'SX4', trims: ['Стандарт'] },
+  ]},
+  { brand: 'Toyota', models: [
+    { name: 'Camry', trims: ['Стандарт'] },
+    { name: 'Corolla', trims: ['Стандарт'] },
+    { name: 'RAV4', trims: ['Стандарт'] },
+    { name: 'Land Cruiser', trims: ['Стандарт'] },
+    { name: 'Fortuner', trims: ['Стандарт'] },
+    { name: 'Hilux', trims: ['Стандарт'] },
+  ]},
+  { brand: 'Volkswagen', models: [
+    { name: 'Polo', trims: ['Стандарт'] },
+    { name: 'Jetta', trims: ['Стандарт'] },
+    { name: 'Passat', trims: ['Стандарт'] },
+    { name: 'Tiguan', trims: ['Стандарт'] },
+    { name: 'Touareg', trims: ['Стандарт'] },
+    { name: 'Golf', trims: ['Стандарт'] },
+  ]},
+  { brand: 'Volvo', models: [
+    { name: 'XC60', trims: ['Стандарт'] },
+    { name: 'XC90', trims: ['Стандарт'] },
+    { name: 'S60', trims: ['Стандарт'] },
+    { name: 'S90', trims: ['Стандарт'] },
+    { name: 'V60', trims: ['Стандарт'] },
+  ]},
 ];
 
 const COLORS = [
@@ -70,9 +225,9 @@ const NAV = [
 ];
 
 const Index = () => {
-  const [brand, setBrand] = useState(CARS[0]);
-  const [model, setModel] = useState(CARS[0].models[0]);
-  const [trim, setTrim] = useState('Стандарт');
+  const [brand, setBrand] = useState<CarBrand>(CARS[0]);
+  const [model, setModel] = useState<CarModel>(CARS[0].models[0]);
+  const [trim, setTrim] = useState(CARS[0].models[0].trims[0]);
   const [color, setColor] = useState(COLORS[1]);
   const [material, setMaterial] = useState(MATERIALS[0]);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -182,7 +337,7 @@ const Index = () => {
                 </div>
               </div>
               <div className="mt-6 space-y-2">
-                <div className="flex justify-between text-sm"><span className="text-muted-foreground">Авто</span><span className="font-600">{brand.brand} {model}</span></div>
+                <div className="flex justify-between text-sm"><span className="text-muted-foreground">Авто</span><span className="font-600">{brand.brand} {model.name}</span></div>
                 <div className="flex justify-between text-sm"><span className="text-muted-foreground">Комплектация</span><span className="font-600">{trim}</span></div>
                 <div className="flex justify-between text-sm"><span className="text-muted-foreground">Материал</span><span className="font-600">{material.name}</span></div>
                 <div className="flex justify-between text-sm"><span className="text-muted-foreground">Цвет</span><span className="font-600">{color.name}</span></div>
@@ -207,7 +362,7 @@ const Index = () => {
                       const found = CARS.find(c => c.brand === e.target.value)!;
                       setBrand(found);
                       setModel(found.models[0]);
-                      setTrim('Стандарт');
+                      setTrim(found.models[0].trims[0]);
                     }}
                     className="w-full h-12 pl-4 pr-10 rounded-xl border border-border bg-secondary text-foreground text-sm font-500 appearance-none outline-none focus:border-primary transition-colors cursor-pointer"
                   >
@@ -222,12 +377,16 @@ const Index = () => {
                 <h3 className="font-display text-xl uppercase mb-4 flex items-center gap-2"><span className="text-primary">02</span> Модель</h3>
                 <div className="relative">
                   <select
-                    value={model}
-                    onChange={(e) => { setModel(e.target.value); setTrim('Стандарт'); }}
+                    value={model.name}
+                    onChange={(e) => {
+                      const found = brand.models.find(m => m.name === e.target.value)!;
+                      setModel(found);
+                      setTrim(found.trims[0]);
+                    }}
                     className="w-full h-12 pl-4 pr-10 rounded-xl border border-border bg-secondary text-foreground text-sm font-500 appearance-none outline-none focus:border-accent transition-colors cursor-pointer"
                   >
                     {brand.models.map((m) => (
-                      <option key={m} value={m}>{m}</option>
+                      <option key={m.name} value={m.name}>{m.name}</option>
                     ))}
                   </select>
                   <Icon name="ChevronDown" size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
@@ -241,7 +400,7 @@ const Index = () => {
                     onChange={(e) => setTrim(e.target.value)}
                     className="w-full h-12 pl-4 pr-10 rounded-xl border border-border bg-secondary text-foreground text-sm font-500 appearance-none outline-none focus:border-primary transition-colors cursor-pointer"
                   >
-                    {['Стандарт', 'Комфорт', 'Люкс', 'Спорт', 'Престиж', 'Базовая'].map((t) => (
+                    {model.trims.map((t) => (
                       <option key={t} value={t}>{t}</option>
                     ))}
                   </select>
