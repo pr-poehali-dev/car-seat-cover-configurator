@@ -6,10 +6,21 @@ const HERO_IMG = 'https://cdn.poehali.dev/projects/178c948b-040e-4cc7-ad35-99592
 const MAT_IMG = 'https://cdn.poehali.dev/projects/178c948b-040e-4cc7-ad35-99592fb0b625/files/2ed7ac17-b7ef-4950-8fb3-e06b349e17f5.jpg';
 
 const CARS = [
-  { brand: 'Lada', models: ['Vesta', 'Granta', 'Largus'] },
-  { brand: 'Kia', models: ['Rio', 'Sportage', 'Optima'] },
-  { brand: 'Hyundai', models: ['Solaris', 'Creta', 'Tucson'] },
-  { brand: 'Toyota', models: ['Camry', 'RAV4', 'Corolla'] },
+  { brand: 'Lada', models: ['Vesta', 'Granta', 'Largus', 'Niva Travel', 'XRAY'] },
+  { brand: 'Kia', models: ['Rio', 'Sportage', 'Optima', 'Sorento', 'K5'] },
+  { brand: 'Hyundai', models: ['Solaris', 'Creta', 'Tucson', 'Santa Fe', 'Elantra'] },
+  { brand: 'Toyota', models: ['Camry', 'RAV4', 'Corolla', 'Land Cruiser', 'Fortuner'] },
+  { brand: 'Mazda', models: ['CX-5', 'CX-9', 'Mazda 6', 'Mazda 3', 'CX-30'] },
+  { brand: 'Nissan', models: ['X-Trail', 'Qashqai', 'Murano', 'Patrol', 'Almera'] },
+  { brand: 'Volkswagen', models: ['Polo', 'Tiguan', 'Passat', 'Touareg', 'Jetta'] },
+  { brand: 'Skoda', models: ['Rapid', 'Octavia', 'Kodiaq', 'Karoq', 'Superb'] },
+  { brand: 'Renault', models: ['Logan', 'Duster', 'Arkana', 'Kaptur', 'Sandero'] },
+  { brand: 'BMW', models: ['3 Series', '5 Series', 'X5', 'X3', '7 Series'] },
+  { brand: 'Mercedes', models: ['C-Class', 'E-Class', 'GLC', 'GLE', 'S-Class'] },
+  { brand: 'Mitsubishi', models: ['Outlander', 'Pajero Sport', 'ASX', 'Eclipse Cross'] },
+  { brand: 'Haval', models: ['F7', 'Jolion', 'H9', 'Dargo', 'F7x'] },
+  { brand: 'Chery', models: ['Tiggo 7 Pro', 'Tiggo 8 Pro', 'Tiggo 4 Pro', 'Arrizo 8'] },
+  { brand: 'Geely', models: ['Atlas Pro', 'Coolray', 'Tugella', 'Monjaro'] },
 ];
 
 const COLORS = [
@@ -177,24 +188,36 @@ const Index = () => {
             <div className="space-y-8">
               <div>
                 <h3 className="font-display text-xl uppercase mb-4 flex items-center gap-2"><span className="text-primary">01</span> Марка</h3>
-                <div className="flex flex-wrap gap-2">
-                  {CARS.map((c) => (
-                    <button key={c.brand} onClick={() => { setBrand(c); setModel(c.models[0]); }}
-                      className={`px-4 py-2 rounded-xl border text-sm font-500 transition-all ${brand.brand === c.brand ? 'bg-primary text-primary-foreground border-primary' : 'border-border hover:border-primary/50'}`}>
-                      {c.brand}
-                    </button>
-                  ))}
+                <div className="relative">
+                  <select
+                    value={brand.brand}
+                    onChange={(e) => {
+                      const found = CARS.find(c => c.brand === e.target.value)!;
+                      setBrand(found);
+                      setModel(found.models[0]);
+                    }}
+                    className="w-full h-12 pl-4 pr-10 rounded-xl border border-border bg-secondary text-foreground text-sm font-500 appearance-none outline-none focus:border-primary transition-colors cursor-pointer"
+                  >
+                    {CARS.map((c) => (
+                      <option key={c.brand} value={c.brand}>{c.brand}</option>
+                    ))}
+                  </select>
+                  <Icon name="ChevronDown" size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
                 </div>
               </div>
               <div>
                 <h3 className="font-display text-xl uppercase mb-4 flex items-center gap-2"><span className="text-primary">02</span> Модель</h3>
-                <div className="flex flex-wrap gap-2">
-                  {brand.models.map((m) => (
-                    <button key={m} onClick={() => setModel(m)}
-                      className={`px-4 py-2 rounded-xl border text-sm font-500 transition-all ${model === m ? 'bg-accent text-accent-foreground border-accent' : 'border-border hover:border-accent/50'}`}>
-                      {m}
-                    </button>
-                  ))}
+                <div className="relative">
+                  <select
+                    value={model}
+                    onChange={(e) => setModel(e.target.value)}
+                    className="w-full h-12 pl-4 pr-10 rounded-xl border border-border bg-secondary text-foreground text-sm font-500 appearance-none outline-none focus:border-accent transition-colors cursor-pointer"
+                  >
+                    {brand.models.map((m) => (
+                      <option key={m} value={m}>{m}</option>
+                    ))}
+                  </select>
+                  <Icon name="ChevronDown" size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
                 </div>
               </div>
               <div>
