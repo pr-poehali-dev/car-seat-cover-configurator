@@ -87,7 +87,7 @@ const Index = () => {
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border">
         <div className="container flex items-center justify-between h-16">
           <button onClick={() => scrollTo('hero')} className="flex items-center gap-3 font-display tracking-wide">
-            <img src="https://cdn.poehali.dev/projects/178c948b-040e-4cc7-ad35-99592fb0b625/bucket/8a113152-2eae-441b-9641-8867e14d4e27.JPG" alt="Авточехол 03" className="h-10 w-10 object-contain" />
+            <img src="https://cdn.poehali.dev/projects/178c948b-040e-4cc7-ad35-99592fb0b625/bucket/e294517c-d19e-4a37-8616-b92c8c8a6905.png" alt="Авточехол 03" className="h-10 w-10 object-contain" />
             <span className="text-xl font-700"><span className="text-primary">Авточехол</span><span className="text-accent"> 03</span></span>
           </button>
           <nav className="hidden md:flex items-center gap-7">
@@ -384,7 +384,7 @@ const Index = () => {
       <footer className="border-t border-border py-10">
         <div className="container flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-3">
-            <img src="https://cdn.poehali.dev/projects/178c948b-040e-4cc7-ad35-99592fb0b625/bucket/8a113152-2eae-441b-9641-8867e14d4e27.JPG" alt="Авточехол 03" className="h-9 w-9 object-contain" />
+            <img src="https://cdn.poehali.dev/projects/178c948b-040e-4cc7-ad35-99592fb0b625/bucket/e294517c-d19e-4a37-8616-b92c8c8a6905.png" alt="Авточехол 03" className="h-9 w-9 object-contain" />
             <span className="font-display text-xl font-700"><span className="text-primary">Авточехол</span><span className="text-accent"> 03</span></span>
           </div>
           <div>© 2026 Авточехол 03. Модельные чехлы для авто.</div>
