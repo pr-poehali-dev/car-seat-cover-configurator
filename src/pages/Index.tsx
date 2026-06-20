@@ -72,6 +72,7 @@ const NAV = [
 const Index = () => {
   const [brand, setBrand] = useState(CARS[0]);
   const [model, setModel] = useState(CARS[0].models[0]);
+  const [trim, setTrim] = useState('Стандарт');
   const [color, setColor] = useState(COLORS[1]);
   const [material, setMaterial] = useState(MATERIALS[0]);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -182,6 +183,7 @@ const Index = () => {
               </div>
               <div className="mt-6 space-y-2">
                 <div className="flex justify-between text-sm"><span className="text-muted-foreground">Авто</span><span className="font-600">{brand.brand} {model}</span></div>
+                <div className="flex justify-between text-sm"><span className="text-muted-foreground">Комплектация</span><span className="font-600">{trim}</span></div>
                 <div className="flex justify-between text-sm"><span className="text-muted-foreground">Материал</span><span className="font-600">{material.name}</span></div>
                 <div className="flex justify-between text-sm"><span className="text-muted-foreground">Цвет</span><span className="font-600">{color.name}</span></div>
                 <div className="flex justify-between items-end pt-4 border-t border-border mt-4">
@@ -205,6 +207,7 @@ const Index = () => {
                       const found = CARS.find(c => c.brand === e.target.value)!;
                       setBrand(found);
                       setModel(found.models[0]);
+                      setTrim('Стандарт');
                     }}
                     className="w-full h-12 pl-4 pr-10 rounded-xl border border-border bg-secondary text-foreground text-sm font-500 appearance-none outline-none focus:border-primary transition-colors cursor-pointer"
                   >
@@ -220,7 +223,7 @@ const Index = () => {
                 <div className="relative">
                   <select
                     value={model}
-                    onChange={(e) => setModel(e.target.value)}
+                    onChange={(e) => { setModel(e.target.value); setTrim('Стандарт'); }}
                     className="w-full h-12 pl-4 pr-10 rounded-xl border border-border bg-secondary text-foreground text-sm font-500 appearance-none outline-none focus:border-accent transition-colors cursor-pointer"
                   >
                     {brand.models.map((m) => (
@@ -231,7 +234,22 @@ const Index = () => {
                 </div>
               </div>
               <div>
-                <h3 className="font-display text-xl uppercase mb-4 flex items-center gap-2"><span className="text-primary">03</span> Цвет</h3>
+                <h3 className="font-display text-xl uppercase mb-4 flex items-center gap-2"><span className="text-primary">03</span> Комплектация</h3>
+                <div className="relative">
+                  <select
+                    value={trim}
+                    onChange={(e) => setTrim(e.target.value)}
+                    className="w-full h-12 pl-4 pr-10 rounded-xl border border-border bg-secondary text-foreground text-sm font-500 appearance-none outline-none focus:border-primary transition-colors cursor-pointer"
+                  >
+                    {['Стандарт', 'Комфорт', 'Люкс', 'Спорт', 'Престиж', 'Базовая'].map((t) => (
+                      <option key={t} value={t}>{t}</option>
+                    ))}
+                  </select>
+                  <Icon name="ChevronDown" size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
+                </div>
+              </div>
+              <div>
+                <h3 className="font-display text-xl uppercase mb-4 flex items-center gap-2"><span className="text-primary">04</span> Цвет</h3>
                 <div className="flex flex-wrap gap-3">
                   {COLORS.map((c) => (
                     <button key={c.name} onClick={() => setColor(c)} title={c.name}
@@ -241,7 +259,7 @@ const Index = () => {
                 </div>
               </div>
               <div>
-                <h3 className="font-display text-xl uppercase mb-4 flex items-center gap-2"><span className="text-primary">04</span> Материал</h3>
+                <h3 className="font-display text-xl uppercase mb-4 flex items-center gap-2"><span className="text-primary">05</span> Материал</h3>
                 <div className="space-y-3">
                   {MATERIALS.map((m) => (
                     <button key={m.name} onClick={() => setMaterial(m)}
