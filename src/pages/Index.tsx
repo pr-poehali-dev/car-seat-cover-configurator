@@ -249,17 +249,7 @@ const Index = () => {
                 </div>
               </div>
               <div>
-                <h3 className="font-display text-xl uppercase mb-4 flex items-center gap-2"><span className="text-primary">04</span> Цвет</h3>
-                <div className="flex flex-wrap gap-3">
-                  {COLORS.map((c) => (
-                    <button key={c.name} onClick={() => setColor(c)} title={c.name}
-                      className={`w-12 h-12 rounded-full border-2 transition-all ${color.name === c.name ? 'border-foreground scale-110' : 'border-border'}`}
-                      style={{ background: c.hex }} />
-                  ))}
-                </div>
-              </div>
-              <div>
-                <h3 className="font-display text-xl uppercase mb-4 flex items-center gap-2"><span className="text-primary">05</span> Материал</h3>
+                <h3 className="font-display text-xl uppercase mb-4 flex items-center gap-2"><span className="text-primary">04</span> Материал</h3>
                 <div className="space-y-3">
                   {MATERIALS.map((m) => (
                     <button key={m.name} onClick={() => setMaterial(m)}
@@ -270,6 +260,16 @@ const Index = () => {
                       </div>
                       <span className="font-display font-700 text-primary">{m.price.toLocaleString('ru')} ₽</span>
                     </button>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <h3 className="font-display text-xl uppercase mb-4 flex items-center gap-2"><span className="text-primary">05</span> Цвет</h3>
+                <div className="flex flex-wrap gap-3">
+                  {COLORS.map((c) => (
+                    <button key={c.name} onClick={() => setColor(c)} title={c.name}
+                      className={`w-12 h-12 rounded-full border-2 transition-all ${color.name === c.name ? 'border-foreground scale-110' : 'border-border'}`}
+                      style={{ background: c.hex }} />
                   ))}
                 </div>
               </div>
