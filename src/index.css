@@ -13,7 +13,7 @@
     --popover: 240 9% 9%;
     --popover-foreground: 40 20% 96%;
 
-    --primary: 18 95% 55%;
+    --primary: 178 52% 45%;
     --primary-foreground: 240 10% 6%;
 
     --secondary: 240 6% 14%;
@@ -22,7 +22,7 @@
     --muted: 240 6% 14%;
     --muted-foreground: 240 5% 60%;
 
-    --accent: 90 70% 55%;
+    --accent: 178 60% 60%;
     --accent-foreground: 240 10% 6%;
 
     --destructive: 0 84.2% 60.2%;
@@ -30,7 +30,7 @@
 
     --border: 240 6% 18%;
     --input: 240 6% 18%;
-    --ring: 18 95% 55%;
+    --ring: 178 52% 45%;
 
     --radius: 0.5rem;
 
@@ -112,9 +112,9 @@
   .text-gradient {
     background: linear-gradient(
       100deg,
-      hsl(18 95% 55%),
-      hsl(38 95% 58%),
-      hsl(90 70% 55%)
+      hsl(178 52% 45%),
+      hsl(178 60% 65%),
+      hsl(190 70% 70%)
     );
     -webkit-background-clip: text;
     background-clip: text;
@@ -128,7 +128,7 @@
     background-size: 4px 4px;
   }
   .glow {
-    box-shadow: 0 0 60px -10px hsl(18 95% 55% / 0.5);
+    box-shadow: 0 0 60px -10px hsl(178 52% 45% / 0.5);
   }
 }
 
